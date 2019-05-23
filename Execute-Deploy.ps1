@@ -8,6 +8,7 @@ param (
     [Parameter(Mandatory = $true)] [String] $WorkingDirectory
 )
 
+Install-Module -Name AWSPowerShell -Force
 Import-Module -Name AWSPowerShell
 
 $InformationPreference = 'Continue'
