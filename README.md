@@ -1,6 +1,10 @@
 # XI.Forums.AWSDeploy
 These are the deployment scripts for the XtremeIdiots.com forums. They deploy the IPS Community platform to AWS.
 
+# Pipeline
+[![Build status](https://frasermolyneux.visualstudio.com/XI/_apis/build/status/XI.Forums.AWSDeploy)]()
+
+# Workflow
 Workflow of the deployment: 
 - Ensures that the application exists in AWS, if not creates it
 - Ensures that the environment exists and is updated, if not creates it
