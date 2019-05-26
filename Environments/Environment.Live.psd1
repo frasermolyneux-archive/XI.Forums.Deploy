@@ -1,6 +1,25 @@
 @{
     ElasticBeanstalk  = @{
         EnvironmentName = "XtremeIdiotsForums-Live"
+
+        OptionSettings    = @(
+            ## Auto Scaling
+            @{
+                Namespace  = "aws:autoscaling:launchconfiguration"
+                OptionName = "InstanceType"
+                Value      = "t2.micro"
+            }
+            @{
+                Namespace  = "aws:autoscaling:asg"
+                OptionName = "MinSize"
+                Value      = "2"
+            }
+            @{
+                Namespace  = "aws:autoscaling:asg"
+                OptionName = "MaxSize"
+                Value      = "2"
+            }
+        )
     }
 
     SecretAppSettings = @{
