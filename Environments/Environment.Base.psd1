@@ -63,6 +63,13 @@
                 OptionName = "SSLPolicy"
                 Value      = "ELBSecurityPolicy-TLS-1-2-2017-01"
             }
+
+            ## Reporting
+            @{
+                Namespace  = "aws:elasticbeanstalk:healthreporting:system"
+                OptionName = "SystemType"
+                Value      = "enhanced"
+            }
         )
     }
 
