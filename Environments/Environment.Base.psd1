@@ -36,6 +36,11 @@
                 OptionName = "StickinessLBCookieDuration"
                 Value      = "900"
             }
+            @{
+                Namespace  = "aws:elasticbeanstalk:environment:process:default"
+                OptionName = "MatcherHTTPCode"
+                Value      = "301" # Redirect in this case is 'healthy' - TODO: put in a health check page
+            }
 
             ## Load Balancer - 443
             @{
@@ -57,6 +62,11 @@
                 Namespace  = "aws:elbv2:listener:443"
                 OptionName = "SSLCertificateArns"
                 Value      = "arn:aws:acm:us-east-2:779496319502:certificate/92d6b75b-1327-4db6-9272-4b36997ab41a"
+            }
+            @{
+                Namespace  = "aws:elbv2:listener:443"
+                OptionName = "SSLPolicy"
+                Value      = "ELBSecurityPolicy-TLS-1-2-2017-01"
             }
         )
     }
