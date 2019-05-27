@@ -7,7 +7,7 @@
             @{
                 Namespace  = "aws:autoscaling:launchconfiguration"
                 OptionName = "InstanceType"
-                Value      = "t2.micro"
+                Value      = "t2.small"
             }
             @{
                 Namespace  = "aws:autoscaling:asg"
