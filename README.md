@@ -1,4 +1,4 @@
-# XI.Forums.AWSDeploy
+# XI.Forums.Deploy
 These are the deployment scripts for the XtremeIdiots.com forums. They deploy the IPS Community platform to AWS.
 
 # Pipeline
