@@ -1,4 +1,4 @@
-function Upload-IPSArtifactArchive {
+function Upload-ArtifactArchiveToS3 {
     [CmdletBinding()]
     param (
         [Parameter(Mandatory = $true)] [String] $ArtifactS3BucketName,

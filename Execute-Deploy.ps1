@@ -56,7 +56,7 @@ New-IPSArtifactArchive `
 Ensure-ArtifactS3BucketExists `
     -ArtifactS3BucketName $environmentConfig.ArtifactS3Bucket.BucketName
 
-Upload-IPSArtifactArchive `
+Upload-ArtifactArchiveToS3 `
     -ArtifactS3BucketName $environmentConfig.ArtifactS3Bucket.BucketName `
     -ArchiveName $artifactName `
     -WorkingDirectory $WorkingDirectory
