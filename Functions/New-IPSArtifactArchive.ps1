@@ -7,7 +7,7 @@ function New-IPSArtifactArchive {
     )
     
     begin {
-        Write-Debug "Begin creating IPS artifact archive for $WebsiteFilePath"
+        Write-Debug "Begin creating IPS artifact archive $ArchiveName for $WebsiteFilePath in $WorkingDirectory"
     }
     
     process {
@@ -40,6 +40,6 @@ function New-IPSArtifactArchive {
     }
     
     end {
-        Write-Debug "End creating IPS artifact archive for $WebsiteFilePath"
+        Write-Debug "End creating IPS artifact archive $ArchiveName for $WebsiteFilePath in $WorkingDirectory"
     }
 }
