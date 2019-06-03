@@ -1,4 +1,5 @@
 param (
+    [Parameter(Mandatory = $true)] [String] $DeployScriptsPath,
     [Parameter(Mandatory = $true)] [String] $Environment,
     [Parameter(Mandatory = $true)] [String] $Version,
     [Parameter(Mandatory = $true)] [String] $AWSAccessKey,
@@ -14,20 +15,19 @@ Import-Module -Name AWSPowerShell
 $InformationPreference = 'Continue'
 $DebugPreference = 'Continue'
 $VerbosePreference = 'Continue'
-
 $ErrorActionPreference = "Stop"
 
-Get-ChildItem -Path "$PSScriptRoot/Functions" -Filter "*.ps1" | ForEach-Object {
-    . $_.FullName
-    Write-Debug "Importing function file $($_.FullName)"
-}
+. "$DeployScriptsPath\Import-DeployScripts.ps1"
 
 Write-Information "Executing IPS Community deployment to AWS for environment $Environment"
 
-$environmentConfig = Import-EnvironmentConfig -Environment $Environment
+$environmentConfig = Import-EnvironmentConfig -Environment $Environment -ConfigDir "$PSScriptRoot\Environments"
 
 Set-AWSCredential -AccessKey $AWSAccessKey -SecretKey $AWSSecretKey -StoreAs "default"
 Set-DefaultAWSRegion -Region $AWSRegion
+
+Ensure-AwsRdsSecurityGroupExists `
+    -Environment $environmentConfig.ElasticBeanstalk.EnvironmentName
 
 Ensure-EBApplicationExists `
     -ApplicationName $environmentConfig.ElasticBeanstalk.ApplicationName
@@ -48,7 +48,11 @@ Apply-TokenisationToConfigs `
     -AppSettings $environmentConfig.AppSettings `
     -FilesToTokenise $environmentConfig.FilesToTokenise
 
-New-IPSArtifactArchive `
+Get-ChildItem -Path $WebsiteFilePath
+New-Item -Path "$WebsiteFilePath\.ebextensions" -ItemType Directory -Force
+Copy-Item -Path "$PSScriptRoot\..\EBExtensions\*" -Destination "$WebsiteFilePath\.ebextensions" -Force
+
+New-ZipArtifactArchive `
     -WebsiteFilePath $WebsiteFilePath `
     -ArchiveName $artifactName `
     -WorkingDirectory $WorkingDirectory
