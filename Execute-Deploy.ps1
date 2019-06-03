@@ -50,7 +50,7 @@ Apply-TokenisationToConfigs `
 
 Get-ChildItem -Path $WebsiteFilePath
 New-Item -Path "$WebsiteFilePath\.ebextensions" -ItemType Directory -Force
-Copy-Item -Path "$PSScriptRoot\..\EBExtensions\*" -Destination "$WebsiteFilePath\.ebextensions" -Force
+Copy-Item -Path "$PSScriptRoot\EBExtensions\*" -Destination "$WebsiteFilePath\.ebextensions" -Force
 
 New-ZipArtifactArchive `
     -WebsiteFilePath $WebsiteFilePath `
