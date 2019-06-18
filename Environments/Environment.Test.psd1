@@ -12,12 +12,12 @@
             @{
                 Namespace  = "aws:autoscaling:asg"
                 OptionName = "MinSize"
-                Value      = "1"
+                Value      = "0"
             }
             @{
                 Namespace  = "aws:autoscaling:asg"
                 OptionName = "MaxSize"
-                Value      = "1"
+                Value      = "0"
             }
         )
     }
