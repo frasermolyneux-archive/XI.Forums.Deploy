@@ -70,6 +70,23 @@
                 OptionName = "SystemType"
                 Value      = "enhanced"
             }
+
+            ## Deployment Policy
+            @{
+                Namespace  = "aws:elasticbeanstalk:command"
+                OptionName = "DeploymentPolicy"
+                Value      = "Immutable"
+            }
+            @{
+                Namespace  = "aws:elasticbeanstalk:command"
+                OptionName = "HealthCheckSuccessThreshold"
+                Value      = "Warning"
+            }
+            @{
+                Namespace  = "aws:elasticbeanstalk:command"
+                OptionName = "Timeout"
+                Value      = "900"
+            }
         )
     }
 
