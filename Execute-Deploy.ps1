@@ -26,8 +26,8 @@ $environmentConfig = Import-EnvironmentConfig -Environment $Environment -ConfigD
 Set-AWSCredential -AccessKey $AWSAccessKey -SecretKey $AWSSecretKey -StoreAs "default"
 Set-DefaultAWSRegion -Region $AWSRegion
 
-# Ensure-AwsRdsSecurityGroupExists `
-#    -Environment $environmentConfig.ElasticBeanstalk.EnvironmentName
+Ensure-AwsRdsSecurityGroupExists `
+    -Environment $environmentConfig.ElasticBeanstalk.EnvironmentName
 
 Ensure-EBApplicationExists `
     -ApplicationName $environmentConfig.ElasticBeanstalk.ApplicationName
