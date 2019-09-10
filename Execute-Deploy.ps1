@@ -6,7 +6,9 @@ param (
     [Parameter(Mandatory = $true)] [String] $AWSSecretKey,
     [Parameter(Mandatory = $true)] [String] $AWSRegion,
     [Parameter(Mandatory = $true)] [String] $WebsiteFilePath,
-    [Parameter(Mandatory = $true)] [String] $WorkingDirectory
+    [Parameter(Mandatory = $true)] [String] $WorkingDirectory,
+    [Int] $MinInstances = 1,
+    [Int] $MaxInstances = 1
 )
 
 Install-Module -Name AWSPowerShell -Force
@@ -22,6 +24,18 @@ $ErrorActionPreference = "Stop"
 Write-Information "Executing IPS Community deployment to AWS for environment $Environment"
 
 $environmentConfig = Import-EnvironmentConfig -Environment $Environment -ConfigDir "$PSScriptRoot\Environments"
+
+$environmentConfig.ElasticBeanstalk.OptionSettings += @{
+    Namespace  = "aws:autoscaling:asg"
+    OptionName = "MinSize"
+    Value      = $MinInstances
+}
+
+$environmentConfig.ElasticBeanstalk.OptionSettings += @{
+    Namespace  = "aws:autoscaling:asg"
+    OptionName = "MaxSize"
+    Value      = $MaxInstances
+}
 
 Set-AWSCredential -AccessKey $AWSAccessKey -SecretKey $AWSSecretKey -StoreAs "default"
 Set-DefaultAWSRegion -Region $AWSRegion

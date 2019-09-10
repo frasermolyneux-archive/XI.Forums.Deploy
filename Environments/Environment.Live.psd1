@@ -9,16 +9,6 @@
                 OptionName = "InstanceType"
                 Value      = "t2.small"
             }
-            @{
-                Namespace  = "aws:autoscaling:asg"
-                OptionName = "MinSize"
-                Value      = "2"
-            }
-            @{
-                Namespace  = "aws:autoscaling:asg"
-                OptionName = "MaxSize"
-                Value      = "2"
-            }
         )
     }
 
