@@ -106,8 +106,8 @@
     AppSettings       = @{
         "dbport"       = "3306"
         "guest_group"  = "2"
-        "member_group" = "3"
-        "admin_group"  = "6"
+        "member_group" = "82"
+        "admin_group"  = "61"
     }
 
     FilesToTokenise   = @(
