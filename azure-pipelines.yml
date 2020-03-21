@@ -1,8 +1,10 @@
+trigger:
+- master
+
 pool:
-  name: Hosted VS2017
+  vmImage: 'windows-2019'
 
 steps:
-
 - task: PowerShell@2
   displayName: 'Execute-Tests'
   inputs:
