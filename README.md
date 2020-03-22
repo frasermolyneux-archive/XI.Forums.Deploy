@@ -6,12 +6,6 @@ These are the deployment scripts for the XtremeIdiots.com forums. They deploy th
 
 [![Build Status](https://dev.azure.com/frasermolyneux/XtremeIdiots/_apis/build/status/frasermolyneux.XI.Forums?branchName=master)](https://dev.azure.com/frasermolyneux/XtremeIdiots/_build/latest?definitionId=84&branchName=master)
 
-## Deployment Status
-
-<https://test.xtremeidiots.com> - [![Deployment status](https://vsrm.dev.azure.com/frasermolyneux/_apis/public/Release/badge/9a8cd583-aad3-46f3-a863-a768e462a8fe/1/1)](https://test.xtremeidiots.com)
-
-<https://www.xtremeidiots.com> - [![Deployment status](https://vsrm.dev.azure.com/frasermolyneux/_apis/public/Release/badge/9a8cd583-aad3-46f3-a863-a768e462a8fe/1/2)](https://www.xtremeidiots.com)
-
 ## Workflow
 
 Workflow of the deployment:
