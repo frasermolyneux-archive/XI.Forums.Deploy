@@ -78,6 +78,11 @@
                 Value      = "Immutable"
             }
             @{
+                Namespace  = "aws:autoscaling:updatepolicy"
+                OptionName = "RollingUpdate"
+                Value      = "Immutable"
+            }
+            @{
                 Namespace  = "aws:elasticbeanstalk:command"
                 OptionName = "HealthCheckSuccessThreshold"
                 Value      = "Warning"
