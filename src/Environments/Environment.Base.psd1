@@ -78,8 +78,8 @@
                 Value      = "Immutable"
             }
             @{
-                Namespace  = "aws:autoscaling:updatepolicy"
-                OptionName = "RollingUpdate"
+                Namespace  = "aws:autoscaling:updatepolicy:rollingupdate"
+                OptionName = "RollingUpdateType"
                 Value      = "Immutable"
             }
             @{
