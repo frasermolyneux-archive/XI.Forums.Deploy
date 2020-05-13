@@ -7,7 +7,7 @@
             @{
                 Namespace  = "aws:autoscaling:launchconfiguration"
                 OptionName = "InstanceType"
-                Value      = "t2.small"
+                Value      = "t2.medium"
             }
         )
     }
