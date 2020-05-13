@@ -1,7 +1,7 @@
 @{
     ElasticBeanstalk  = @{
         ApplicationName   = "XtremeIdiotsForums"
-        SolutionStackName = "64bit Amazon Linux 2018.03 v2.9.4 running PHP 7.3"
+        SolutionStackName = "64bit Amazon Linux 2018.03 v2.9.6 running PHP 7.3"
         TierType          = "Standard"
         TierName          = "WebServer"
 
